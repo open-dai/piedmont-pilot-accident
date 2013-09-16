@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>RoadAccidents Opendai - Openlayers</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <!-- script type="text/javascript" src="js/modernizr-1.5.min.js"></script -->
+	<!-- Per la mappa -->
+  <script src="openlayers/lib/OpenLayers.js"></script>
+  <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+  
+	<!-- Jquery UI --> 
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+  <script src="js/jquery-ui-timepicker-addon.js"></script>  
+  <!-- link href="css/cupertino/jquery-ui.css" rel="stylesheet">
+  <link href="css/cupertino/jquery.ui.theme.css" rel="stylesheet" -->
+
+  <link href="css/redmond/jquery-ui.css" rel="stylesheet">
+  <link href="css/redmond/jquery.ui.theme.css" rel="stylesheet">
+  <link href="css/jquery-ui-timepicker-addon.css" rel="stylesheet">
+
+  <script type="text/javascript" src="js/opendai_map.js"></script>
+  
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html"><b style="color: #0DBBD5">RoadAccidents</b><span class="logo_colour">_Opendai</span></a></h1>
+          <h2 style="color: #F67F00"><b>RoadAccidents Opendai - Openlayers</b></h2>
+        </div>
+      </div>
+      <nav>
+        <div id="menu_container">
+          <ul class="sf-menu" id="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="http://www.open-dai.eu/">Info</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="sidebar">
+        	<!-- 
+          <h3>Ultime notizie</h3>
+          <h4>26/03/2012 - Pagina di prova</h4>
+          <p>Pagina la visualizzazione dei sinistri automobilistici sul territorio piemontese.&nbsp;Fonte dati TWIST <a href="http://www.ruparpiemonte.it/cms/servizi-rupar/servizio/238-twist-trasmissione-web-incidenti-stradali.html">Read more</a></p>
+          -->          
+          <h3>Strumenti</h3>
+          <h4>Data e ora rif. Sensori Traffico</h4>
+          <p>Working progress</p>
+					<div>
+						<span id="time_pick" ></span>
+						<br/>
+						<input type="hidden" id="date_time_selection" value="" />
+						<!-- input type="text" name="time_pick_alt" id="time_pick_alt" value="" readonly="true" / -->						
+					</div>
+        </div>
+      </div>
+      <div class="content">
+				<div id="map"></div>
+				<div id="coord_scale">
+					<div id="label_coord">
+						<label>Lon, Lat </label>
+					</div>
+					<div id="coord">7.903747, 45.174293</div>
+					<div id="scale"></div>
+				</div>
+				<div id="slider_anno">
+						<div id="label_anno">
+							<label>Showing year </label><span id="range_anni"></span>
+							<input type="hidden" id="from_year" value="2009" />
+							<input type="hidden" id="to_year" value="2010" />
+						</div>
+						<div id="update">&nbsp;<img src="images/update.png" title="Update accident layer" alt="Update accident layer" onclick="updateIncidenti(document);" style="cursor: pointer;" /></div>
+						<div id="slider-range"></div>
+				</div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright &copy; scenic_photo, custumized by <b style="color: #0DBBD5">RoadAccidents</b><span class="logo_colour">_Opendai</span> | <a href="http://www.css3templates.co.uk">design starting from css3templates.co.uk</a></p>
+    </footer>
+  </div>
+  <p>&nbsp;</p>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      init();
+    });
+  </script>
+  <script type="text/javascript">
+   function openTimePicker()
+   {
+
+   }	
+  	
+	 $(function() {
+			$( "#slider-range" ).slider({
+				range: true,
+				min: 2009,
+				max: 2013,
+				step: 1,
+				values: [ 2009, 2010 ],
+				slide: function( event, ui ) {
+					$( "#range_anni" ).html( "from  " + ui.values[ 0 ] + " - to " + ui.values[ 1 ] );
+				},
+				change: function( event, ui ) {
+					$( "#from_year" ).val(ui.values[ 0 ]);
+					$( "#to_year" ).val(ui.values[ 1 ]);
+					// refreshWMSLayer(ui.values[ 0 ], ui.values[ 1 ]);
+					// Aggiorno solo i campi Hidden, aggiornamento con click su img
+				}
+			});
+			
+			$( "#range_anni" ).html( "from " + $( "#slider-range" ).slider( "values", 0 ) + " - to " + $( "#slider-range" ).slider( "values", 1 ) );
+			
+			$('#time_pick').datetimepicker({
+				// altField: "#time_pick_alt",
+				// altFieldTimeOnly: false,
+				showButtonPanel: false,
+				dateFormat: 'dd/mm/yy',
+				onSelect: function(dateText, inst){
+						// alert("Setting input Hiddden: " + dateText);
+						$("#date_time_selection").val(dateText+"");
+				}
+			});
+			
+			
+		});
+	</script>
+</body>
+</html>
