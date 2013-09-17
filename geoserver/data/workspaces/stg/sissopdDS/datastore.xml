@@ -1,0 +1,22 @@
+<dataStore>
+  <id>DataStoreInfoImpl--6d634860:13e3c11c1f3:-8000</id>
+  <name>sissopdDS</name>
+  <description>sissopdDS</description>
+  <type>PostGIS (JNDI)</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--5b737689:13d839d38ef:-7fef</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">sissopd</entry>
+    <entry key="dbtype">postgis</entry>
+    <entry key="Loose bbox">true</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="encode functions">false</entry>
+    <entry key="preparedStatements">false</entry>
+    <entry key="jndiReferenceName">java:/datasources/sissodp-ds</entry>
+    <entry key="Estimated extends">true</entry>
+    <entry key="namespace">stg</entry>
+  </connectionParameters>
+  <__default>false</__default>
+</dataStore>

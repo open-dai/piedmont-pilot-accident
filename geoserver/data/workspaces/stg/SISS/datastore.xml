@@ -1,0 +1,20 @@
+<dataStore>
+  <id>DataStoreInfoImpl--5b737689:13d839d38ef:-7fed</id>
+  <name>SISS</name>
+  <description>SISS</description>
+  <type>Oracle NG (JNDI)</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--5b737689:13d839d38ef:-7fef</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">siss</entry>
+    <entry key="dbtype">oracle</entry>
+    <entry key="Loose bbox">true</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="jndiReferenceName">java:/twistDB</entry>
+    <entry key="Estimated extends">true</entry>
+    <entry key="namespace">stg</entry>
+  </connectionParameters>
+  <__default>false</__default>
+</dataStore>

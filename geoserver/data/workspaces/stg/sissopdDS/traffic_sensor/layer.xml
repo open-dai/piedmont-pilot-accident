@@ -1,0 +1,16 @@
+<layer>
+  <name>traffic_sensor</name>
+  <id>LayerInfoImpl--6d634860:13e3c11c1f3:-7ffe</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--6d634860:13e3c11c1f3:-5e86</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--6d634860:13e3c11c1f3:-7fff</id>
+  </resource>
+  <enabled>true</enabled>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>
