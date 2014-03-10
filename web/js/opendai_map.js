@@ -1,6 +1,6 @@
 // Posizione iniziale della mappa
-var geo_server_ip = "194.116.110.158";
-
+var geo_server_ip = "geo.italy.opendai.eu";
+var geo_server_port = "80";
 var lat=45.174293;
 var lon=7.903747;
 // zoom iniziale
@@ -62,7 +62,7 @@ function init() {
 	
 	inc_wms = new OpenLayers.Layer.WMS(
   " Road Accident",
-  "http://" + geo_server_ip + ":80/geoserver/stg/wms?service=WMS&version=1.1.0",
+  "http://" + geo_server_ip + ":" + geo_server_port + "/geoserver/stg/wms?service=WMS&version=1.1.0",
   {
       layers: "stg:SISS_VSDO_PT_LOCINC",
       transparent: "true",
@@ -78,7 +78,7 @@ function init() {
 	// Layer spire
 	spire_wms = new OpenLayers.Layer.WMS(
   " Traffic Sensor",
-  "http://" + geo_server_ip + ":80/geoserver/stg/wms?service=WMS&version=1.1.0",
+  "http://" + geo_server_ip + ":" + geo_server_port + "/geoserver/stg/wms?service=WMS&version=1.1.0",
   {
       layers: "stg:traffic_sensor",
       transparent: "true",

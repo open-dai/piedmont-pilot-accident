@@ -152,7 +152,7 @@ header {
 }
 
 #logo { 
-  width: 330px;
+  width: 100%;
   float: left;
   height: 80px;
   color: #888;

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>RoadAccidents Opendai - Openlayers</title>
+  <title>RoadAccidents Opendai</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -35,8 +35,8 @@
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1><a href="index.html"><b style="color: #0DBBD5">RoadAccidents</b><span class="logo_colour">_Opendai</span></a></h1>
-          <h2 style="color: #F67F00"><b>RoadAccidents Opendai - Openlayers</b></h2>
+          <h1><a href="index.html"><b style="color: #0DBBD5">RoadAccidents Opendai</b></a></h1>
+          <h2 style="color: #F67F00"><b>Incidenti stradali e sensori di traffico - selezionare un incidente (rosso) per verificare lo stato del traffico nei sensori corrispondenti</b></h2>
         </div>
       </div>
       <nav>
@@ -58,7 +58,7 @@
           -->          
           <h3>Strumenti</h3>
           <h4>Data e ora rif. Sensori Traffico</h4>
-          <p>Working progress</p>
+          
 					<div>
 						<span id="time_pick" ></span>
 						<br/>
@@ -78,7 +78,7 @@
 				</div>
 				<div id="slider_anno">
 						<div id="label_anno">
-							<label>Showing year </label><span id="range_anni"></span>
+							<label>Anni </label><span id="range_anni"></span>
 							<input type="hidden" id="from_year" value="2009" />
 							<input type="hidden" id="to_year" value="2010" />
 						</div>
@@ -88,7 +88,7 @@
       </div>
     </div>
     <footer>
-      <p>Copyright &copy; scenic_photo, custumized by <b style="color: #0DBBD5">RoadAccidents</b><span class="logo_colour">_Opendai</span> | <a href="http://www.css3templates.co.uk">design starting from css3templates.co.uk</a></p>
+      <p>Copyright &copy; CSI-Piemonte</p>
     </footer>
   </div>
   <p>&nbsp;</p>
@@ -108,21 +108,21 @@
 			$( "#slider-range" ).slider({
 				range: true,
 				min: 2009,
-				max: 2013,
+				max: 2014,
 				step: 1,
 				values: [ 2009, 2010 ],
 				slide: function( event, ui ) {
-					$( "#range_anni" ).html( "from  " + ui.values[ 0 ] + " - to " + ui.values[ 1 ] );
+					$( "#range_anni" ).html( "da  " + ui.values[ 0 ] + " - a " + ui.values[ 1 ] );
 				},
 				change: function( event, ui ) {
 					$( "#from_year" ).val(ui.values[ 0 ]);
 					$( "#to_year" ).val(ui.values[ 1 ]);
-					// refreshWMSLayer(ui.values[ 0 ], ui.values[ 1 ]);
+					refreshWMSLayer(ui.values[ 0 ], ui.values[ 1 ]);
 					// Aggiorno solo i campi Hidden, aggiornamento con click su img
 				}
 			});
 			
-			$( "#range_anni" ).html( "from " + $( "#slider-range" ).slider( "values", 0 ) + " - to " + $( "#slider-range" ).slider( "values", 1 ) );
+			$( "#range_anni" ).html( "da " + $( "#slider-range" ).slider( "values", 0 ) + " - a " + $( "#slider-range" ).slider( "values", 1 ) );
 			
 			$('#time_pick').datetimepicker({
 				// altField: "#time_pick_alt",
